@@ -222,13 +222,14 @@
       <div class="topbar">
         <h1>About</h1>
         <nav class="nav">
-          <a class="active" href="index.html">About</a>
-          <a href="resume.html">Resume</a>
-          <a href="contact.html">Contact</a>
+         
+          <a class="active" href="#about">About</a>
+<a href="#resume">Resume</a>
+<a href="#contact">Contact</a>
         </nav>
       </div>
 
-      <section class="section">
+ <section class="section" id="about">
         <h2>About me</h2>
         <p>
           I hold a Bachelor’s degree in Communication Sciences and a Master’s degree in Marketing
@@ -254,7 +255,6 @@
            Google Analytics • HubSpot (basics) • Canva • CapCut • Notion
           </div>
         </section>
-
         <section class="kpi">
           <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7v3H3v10h18V12h-2V9a7 7 0 0 0-7-7zm5 10H7V9a5 5 0 0 1 10 0v3z"/></svg>
           <div class="txt">
@@ -263,15 +263,100 @@
           </div>
         </section>
       </div>
+<section class="section" id="resume">
+  <h2>Resume</h2>
 
+  <p style="margin:0; color:var(--muted); line-height:1.75">
+    <strong>Marketing & Communications Associate — Sphere Energy</strong><br>
+    Content creation • Digital campaigns • Events • Project coordination
+  </p>
+
+  <ul style="margin:10px 0 0; padding-left:18px; color:var(--muted); line-height:1.75">
+    <li>Creation and management of digital content (LinkedIn, YouTube, Spotify), including graphic and layout development.</li>
+    <li>Editorial management of the <em>Espresso Talks</em> podcast (end-to-end): copywriting, planning, reviewing, and publishing.</li>
+    <li>Newsletter management (<em>Espresso Notes</em>) and video editing (<em>Espresso Shots</em>), including KPI tracking to optimize performance.</li>
+    <li>Planning and execution of digital marketing campaigns using LinkedIn Campaign Manager and Mailchimp.</li>
+    <li>Coordination of corporate participation in international trade shows and internal company events, overseeing logistics, marketing materials preparation, agenda planning, and on-site operational support.</li>
+    <li>Client project management: tracking progress, facilitating client–team communication, supporting project planning.</li>
+  </ul>
+<section>
+   <section class="section">
+  <h2>Education</h2>
+  <ul>
+    <li>
+      Bachelor of Science in Communication Sciences — Università della Svizzera italiana (USI) (Sep 2018 – Nov 2021)
+    </li>
+    <li>
+      Master of Science in Communication and Economics — Major in Marketing — Università della Svizzera italiana (USI) (Sep 2021 – Jul 2023)
+    </li>
+  </ul>
+</section>
+
+
+  <div style="margin-top:12px">
+    <a
+      href="mailto:valentina.juri98@gmail.com?subject=CV%20request%20-%20Valentina%20Juric"
+      style="display:inline-block; padding:10px 12px; border-radius:12px;
+             background: var(--accentSoft); border:1px solid rgba(107,92,255,.25);
+             color: var(--accent); font-weight:700; font-size:14px;"
+    >
+      Request CV via email →
+    </a>
+  </div>
+</section>
+
+<section class="section" id="contact">
+  <h2>Contact</h2>
+
+  <form id="contactForm">
+    <label for="name" style="display:block; margin:10px 0 6px; color:var(--muted); font-size:14px">Full name</label>
+    <input id="name" type="text" required placeholder="Your full name"
+           style="width:100%; padding:12px; border-radius:12px; border:1px solid rgba(20,22,26,.14); background:#fff; font-family:inherit; font-size:14px;" />
+
+    <label for="email" style="display:block; margin:10px 0 6px; color:var(--muted); font-size:14px">Email address</label>
+    <input id="email" type="email" required placeholder="your@email.com"
+           style="width:100%; padding:12px; border-radius:12px; border:1px solid rgba(20,22,26,.14); background:#fff; font-family:inherit; font-size:14px;" />
+
+    <label for="message" style="display:block; margin:10px 0 6px; color:var(--muted); font-size:14px">Your message</label>
+    <textarea id="message" required placeholder="Write your message..."
+              style="width:100%; padding:12px; border-radius:12px; border:1px solid rgba(20,22,26,.14); background:#fff; font-family:inherit; font-size:14px; min-height:140px; resize:vertical"></textarea>
+
+    <button type="submit"
+            style="margin-top:12px; display:inline-block; padding:10px 12px; border-radius:12px;
+                   background: var(--accentSoft); border:1px solid rgba(107,92,255,.25);
+                   color: var(--accent); font-weight:800; cursor:pointer; font-size:14px;">
+      Send
+    </button>
+  </form>
+
+  <div style="margin-top:12px; color:var(--muted); line-height:1.75">
+    Prefer LinkedIn? Send me a message here:
+    <a href="https://www.linkedin.com/in/juric-valentina/" target="_blank" rel="noreferrer">linkedin.com/in/juric-valentina/</a>
+  </div>
+</section>
+      
       <div class="footer">Last update: <span id="d"></span></div>
     </main>
 
   </div>
 
-  <script>
-    document.getElementById("d").textContent = new Date().toLocaleDateString();
-  </script>
+<script>
+  document.getElementById("d").textContent = new Date().toLocaleDateString();
+
+  const form = document.getElementById('contactForm');
+  if (form) {
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const message = document.getElementById('message').value.trim();
+
+      const subject = encodeURIComponent(`Website contact — ${name}`);
+      const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
+      window.location.href = `mailto:valentina.juri98@gmail.com?subject=${subject}&body=${body}`;
+    });
+  }
+</script>
 </body>
 </html>
 
