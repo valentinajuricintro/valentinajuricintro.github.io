@@ -5,54 +5,70 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Valentina Juric — Resume</title>
   <style>
-    body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;background:#0b0c10;color:#e9e9e9}
-    a{color:#f3c969;text-decoration:none} a:hover{text-decoration:underline}
-    .wrap{max-width:1100px;margin:0 auto;padding:26px 16px;display:grid;grid-template-columns:320px 1fr;gap:18px}
+    :root{
+      --bg1:#f6f7fb; --bg2:#eef1f7; --card:#fff; --text:#14161a; --muted:#5b6573;
+      --border: rgba(20,22,26,.10); --shadow: 0 18px 40px rgba(20,22,26,.08);
+      --accent:#6b5cff; --accentSoft: rgba(107,92,255,.12);
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+      background: radial-gradient(900px 600px at 70% 0%, rgba(107,92,255,.10), transparent 60%),
+                  linear-gradient(180deg, var(--bg1), var(--bg2));
+      color:var(--text);}
+    a{color:var(--accent); text-decoration:none} a:hover{text-decoration:underline}
+    .wrap{max-width:1120px;margin:0 auto;padding:26px 16px;display:grid;grid-template-columns:320px 1fr;gap:18px}
     @media (max-width:980px){.wrap{grid-template-columns:1fr}}
-    .card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.10);border-radius:18px;box-shadow:0 18px 60px rgba(0,0,0,.35)}
+    .card{background:var(--card);border:1px solid var(--border);border-radius:18px;box-shadow:var(--shadow)}
     .sidebar{padding:18px;position:sticky;top:16px;height:fit-content}
     @media (max-width:980px){.sidebar{position:relative;top:auto}}
-    .avatar{width:110px;height:110px;border-radius:18px;border:1px solid rgba(255,255,255,.10);object-fit:cover}
-    .name{font-size:24px;margin:14px 0 4px}
-    .role{margin:0;color:rgba(233,233,233,.70);line-height:1.5}
-    .row{margin-top:10px;padding:12px;border-radius:14px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06);color:rgba(233,233,233,.70);font-size:14px}
-    .row strong{display:block;color:#e9e9e9;margin-bottom:4px}
+    .avatar{width:110px;height:110px;border-radius:18px;border:1px solid var(--border);object-fit:cover;background:linear-gradient(135deg, rgba(107,92,255,.18), rgba(20,22,26,.06))}
+    .name{font-size:24px;margin:14px 0 10px;font-weight:700}
+    .tags{margin-top:6px;color:var(--muted);font-size:14px;line-height:1.6}
+    .row{display:flex;gap:10px;align-items:flex-start;margin-top:10px;padding:12px;border-radius:14px;background:rgba(107,92,255,.06);border:1px solid rgba(107,92,255,.14);color:var(--muted);font-size:14px;line-height:1.5}
+    .ico{width:18px;height:18px;flex:0 0 18px;margin-top:1px;fill:var(--accent)}
     .main{padding:18px}
     .topbar{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:14px}
-    .nav{display:flex;gap:10px;flex-wrap:wrap}
-    .nav a{padding:10px 12px;border-radius:12px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06);color:#e9e9e9;font-size:14px}
-    .nav a.active{background:rgba(243,201,105,.16);border-color:rgba(243,201,105,.28)}
-    .section{margin-top:14px;padding:16px;border-radius:16px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06)}
     h1{font-size:26px;margin:0}
-    .sub{margin:6px 0 0;color:rgba(233,233,233,.70);line-height:1.6}
-    h2{margin:0 0 10px;font-size:16px;color:rgba(243,201,105,.95)}
-    ul{margin:10px 0 0;padding-left:18px;color:rgba(233,233,233,.70);line-height:1.75}
-    .cta{display:inline-block;margin-top:10px;padding:10px 12px;border-radius:12px;background:rgba(243,201,105,.16);border:1px solid rgba(243,201,105,.28);color:#e9e9e9;font-size:14px}
+    .nav{display:flex;gap:10px;flex-wrap:wrap}
+    .nav a{padding:10px 12px;border-radius:12px;background:rgba(20,22,26,.04);border:1px solid rgba(20,22,26,.10);color:var(--text);font-size:14px}
+    .nav a.active{background:var(--accentSoft);border-color:rgba(107,92,255,.25);color:var(--accent);font-weight:600}
+    .section{margin-top:14px;padding:16px;border-radius:16px;background:rgba(20,22,26,.03);border:1px solid rgba(20,22,26,.08)}
+    .section h2{margin:0 0 10px;font-size:16px;color:var(--accent)}
+    ul{margin:10px 0 0;padding-left:18px;color:var(--muted);line-height:1.75}
+    .pill{display:inline-block;margin-top:10px;padding:10px 12px;border-radius:12px;background:var(--accentSoft);border:1px solid rgba(107,92,255,.25);color:var(--accent);font-weight:600;font-size:14px}
   </style>
 </head>
 <body>
   <div class="wrap">
     <aside class="card sidebar">
-      <img class="avatar" src="assets/profile.jpg" alt="Valentina Juric photo" />
+      <img class="avatar" src="assets/profile.jpg" alt="Valentina Juric" />
       <div class="name">Valentina Juric</div>
-      <p class="role">Marketing & Communications</p>
+      <div class="tags">
+        • Content creation<br/>
+        • Digital marketing<br/>
+        • Project management<br/>
+        • Event management
+      </div>
 
       <div class="row">
-        <strong>Email</strong>
-        <a href="mailto:valentina.yuri98@cme.com">valentina.yuri98@cme.com</a>
+        <svg class="ico" viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5L4 8V6l8 5 8-5v2z"/></svg>
+        <a href="mailto:valentina.yuri98@gmail.com">valentina.yuri98@gmail.com</a>
       </div>
+
       <div class="row">
-        <strong>LinkedIn</strong>
+        <svg class="ico" viewBox="0 0 24 24"><path d="M4.98 3.5A2.5 2.5 0 1 1 5 8.5a2.5 2.5 0 0 1-.02-5zM3 9h4v12H3V9zm7 0h3.8v1.64h.05c.53-1 1.82-2.05 3.75-2.05C21 8.59 21 11 21 14.1V21h-4v-6.1c0-1.45-.03-3.32-2.02-3.32-2.02 0-2.33 1.58-2.33 3.21V21H10V9z"/></svg>
         <a href="https://www.linkedin.com/in/juric" target="_blank" rel="noreferrer">linkedin.com/in/juric</a>
+      </div>
+
+      <div class="row">
+        <svg class="ico" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5z"/></svg>
+        Switzerland
       </div>
     </aside>
 
     <main class="card main">
       <div class="topbar">
-        <div>
-          <h1>Resume</h1>
-          <p class="sub">A public overview. Full CV available on request.</p>
-        </div>
+        <h1>Resume</h1>
         <nav class="nav">
           <a href="index.html">About</a>
           <a class="active" href="resume.html">Resume</a>
@@ -61,34 +77,47 @@
       </div>
 
       <section class="section">
-        <h2>Experience — Sphere Energy</h2>
+        <h2>Work experience</h2>
         <ul>
-          <li><strong>Content creation:</strong> newsletters, social content, brand assets, and consistent messaging.</li>
-          <li><strong>Campaign execution:</strong> coordination and delivery across channels, optimization mindset.</li>
-          <li><strong>Events:</strong> support in planning, coordination, and communication materials.</li>
-          <li><strong>Project management:</strong> timelines, stakeholders, priorities, and deliverables.</li>
+          <li><strong>Marketing & Communications Associate — Sphere Energy</strong></li>
         </ul>
+      </section>
+
+      <section class="section">
+        <h2>Selected responsibilities</h2>
+        <ul>
+          <li>Creation and management of digital content (LinkedIn, YouTube, Spotify), including graphic and layout development.</li>
+          <li>Editorial management of the <em>Espresso Talks</em> podcast (end-to-end): copywriting, planning, reviewing, and publishing.</li>
+          <li>Newsletter management (<em>Espresso Notes</em>) and video editing (<em>Espresso Shots</em>), including KPI tracking to optimize performance.</li>
+          <li>Planning and execution of digital marketing campaigns using LinkedIn Campaign Manager and Mailchimp (incl. email marketing initiatives).</li>
+          <li>Coordination of corporate participation in international trade shows and internal company events (logistics, promotional materials, agenda planning, on-site support).</li>
+          <li>Client project management: tracking task progress, facilitating client–team communication, and supporting project planning.</li>
+        </ul>
+
+        <a class="pill" href="mailto:valentina.yuri98@gmail.com?subject=CV%20request%20-%20Valentina%20Juric">Request full CV via email →</a>
       </section>
 
       <section class="section">
         <h2>Education</h2>
         <ul>
-          <li>Bachelor’s degree in Communication Sciences — USI</li>
-          <li>Master’s degree in Marketing — USI</li>
+          <li><strong>Bachelor of Science in Communication Sciences — Università della Svizzera italiana (USI)</strong> (Sep 2018 – Nov 2021)</li>
+          <li><strong>Master of Science in Communication and Economics — Major in Marketing (Transformative Economy) — USI</strong> (Sep 2021 – Jul 2023)</li>
         </ul>
       </section>
 
       <section class="section">
-        <h2>Tools & strengths</h2>
+        <h2>Tools</h2>
         <ul>
-          <li>Organized, proactive, goal-oriented; comfortable balancing priorities and deadlines.</li>
-          <li>Strong ownership mindset; fast learner; curious about new tools and processes.</li>
-          <li>Collaboration, precision, accountability; positive contribution to team dynamics.</li>
+          <li>Notion</li>
+          <li>CapCut</li>
+          <li>Canva</li>
+          <li>HubSpot</li>
+          <li>Google Analytics</li>
         </ul>
-
-        <a class="cta" href="mailto:valentina.yuri98@cme.com?subject=CV%20request%20-%20Valentina%20Juric">Request full CV via email →</a>
       </section>
+
     </main>
   </div>
 </body>
 </html>
+
