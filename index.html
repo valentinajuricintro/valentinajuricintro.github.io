@@ -1,362 +1,282 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Valentina Juric — Marketing</title>
-  <style>
-    :root{
-      --bg1:#f6f7fb;
-      --bg2:#eef1f7;
-      --card:#ffffff;
-      --text:#14161a;
-      --muted:#5b6573;
-      --border: rgba(20,22,26,.10);
-      --shadow: 0 18px 40px rgba(20,22,26,.08);
-      --accent:#6b5cff;
-      --accentSoft: rgba(107,92,255,.12);
-    }
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
-      background: radial-gradient(900px 600px at 70% 0%, rgba(107,92,255,.10), transparent 60%),
-                  radial-gradient(900px 600px at 0% 20%, rgba(20,22,26,.06), transparent 55%),
-                  linear-gradient(180deg, var(--bg1), var(--bg2));
-      color:var(--text);
-    }
-    a{color:var(--accent); text-decoration:none}
-    a:hover{text-decoration:underline}
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Valentina Juric — Marketing</title>
+<style>
+:root{
+--bg1:#f6f7fb;
+--bg2:#eef1f7;
+--card:#ffffff;
+--text:#14161a;
+--muted:#5b6573;
+--border: rgba(20,22,26,.10);
+--shadow: 0 18px 40px rgba(20,22,26,.08);
+--accent:#6b5cff;
+--accentSoft: rgba(107,92,255,.12);
+}
+*{box-sizing:border-box}
+body{
+margin:0;
+font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+background: radial-gradient(900px 600px at 70% 0%, rgba(107,92,255,.10), transparent 60%),
+radial-gradient(900px 600px at 0% 20%, rgba(20,22,26,.06), transparent 55%),
+linear-gradient(180deg, var(--bg1), var(--bg2));
+color:var(--text);
+}
+a{color:var(--accent); text-decoration:none}
+a:hover{text-decoration:underline}
 
 .wrap{
-  max-width:1120px;
-  margin:0 auto;
-  padding:26px 16px;
-  display:grid;
-  grid-template-columns: 340px minmax(0, 1fr);
-  gap:18px;
-  align-items:start;
+max-width:1120px;
+margin:0 auto;
+padding:26px 16px;
+display:grid;
+grid-template-columns: 340px minmax(0, 1fr);
+gap:18px;
+align-items:start;
 }
 
 /* passa a una colonna solo su mobile vero */
 @media (max-width: 520px){
-  .wrap{grid-template-columns: 1fr;}
+.wrap{grid-template-columns: 1fr;}
 }
 
 
-    .card{
-      background:var(--card);
-      border:1px solid var(--border);
-      border-radius:18px;
-      box-shadow: var(--shadow);
-    }
+.card{
+background:var(--card);
+border:1px solid var(--border);
+border-radius:18px;
+box-shadow: var(--shadow);
+}
 
-    /* Sidebar */
-    .sidebar{
-      padding:18px;
-      position: sticky;
-      top: 16px;
-      height: fit-content;
-    }
-    @media (max-width: 980px){ .sidebar{position:relative; top:auto;} }
+/* Sidebar */
+.sidebar{
+padding:18px;
+position: sticky;
+top: 16px;
+height: fit-content;
+}
+@media (max-width: 980px){ .sidebar{position:relative; top:auto;} }
 
-    .avatar{
-      width:110px; height:110px;
-      border-radius:18px;
-      border:1px solid var(--border);
-      object-fit:cover;
-      background: linear-gradient(135deg, rgba(107,92,255,.18), rgba(20,22,26,.06));
-      display:block;
-    }
+.avatar{
+width:110px; height:110px;
+border-radius:18px;
+border:1px solid var(--border);
+object-fit:cover;
+background: linear-gradient(135deg, rgba(107,92,255,.18), rgba(20,22,26,.06));
+display:block;
+}
 
-    .name{font-size:24px; margin:14px 0 10px; font-weight:700; letter-spacing:.2px}
-    .tagline{margin:0; color:var(--muted); line-height:1.55}
-    .tags{margin-top:10px; color:var(--muted); line-height:1.6; font-size:14px}
-    .tags span{display:block}
+.name{font-size:24px; margin:14px 0 10px; font-weight:700; letter-spacing:.2px}
+.tagline{margin:0; color:var(--muted); line-height:1.55}
+.tags{margin-top:10px; color:var(--muted); line-height:1.6; font-size:14px}
+.tags span{display:block}
 
-    .info{
-      margin-top:16px;
-      display:grid;
-      gap:10px;
-    }
-    .row{
-      display:flex;
-      gap:10px;
-      align-items:flex-start;
-      padding:12px;
-      border-radius:14px;
-      background: rgba(107,92,255,.06);
-      border: 1px solid rgba(107,92,255,.14);
-      color: var(--muted);
-      font-size:14px;
-      line-height:1.5;
-      word-break: break-word;
-    }
-    .ico{
-      width:18px; height:18px; flex:0 0 18px;
-      margin-top:1px;
-      fill: var(--accent);
-      opacity:.95;
-    }
+.info{
+margin-top:16px;
+display:grid;
+gap:10px;
+}
+.row{
+display:flex;
+gap:10px;
+align-items:flex-start;
+padding:12px;
+border-radius:14px;
+background: rgba(107,92,255,.06);
+border: 1px solid rgba(107,92,255,.14);
+color: var(--muted);
+font-size:14px;
+line-height:1.5;
+word-break: break-word;
+}
+.ico{
+width:18px; height:18px; flex:0 0 18px;
+margin-top:1px;
+fill: var(--accent);
+opacity:.95;
+}
 
-    /* Main */
-    .main{padding:18px}
-    .topbar{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      gap:12px;
-      flex-wrap:wrap;
-      margin-bottom:14px;
-    }
-    h1{font-size:26px; margin:0}
-    .nav{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-    }
-    .nav a{
-      padding:10px 12px;
-      border-radius:12px;
-      background: rgba(20,22,26,.04);
-      border:1px solid rgba(20,22,26,.10);
-      color: var(--text);
-      font-size:14px;
-    }
-    .nav a.active{
-      background: var(--accentSoft);
-      border-color: rgba(107,92,255,.25);
-      color: var(--accent);
-      font-weight:600;
-    }
+/* Main */
+.main{padding:18px}
+.topbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:12px;
+flex-wrap:wrap;
+margin-bottom:14px;
+}
+h1{font-size:26px; margin:0}
+.nav{
+display:flex;
+gap:10px;
+flex-wrap:wrap;
+}
+.nav a{
+padding:10px 12px;
+border-radius:12px;
+background: rgba(20,22,26,.04);
+border:1px solid rgba(20,22,26,.10);
+color: var(--text);
+font-size:14px;
+}
+.nav a.active{
+background: var(--accentSoft);
+border-color: rgba(107,92,255,.25);
+color: var(--accent);
+font-weight:600;
+}
 
-    .section{
-      margin-top:14px;
-      padding:16px;
-      border-radius:16px;
-      background: rgba(20,22,26,.03);
-      border:1px solid rgba(20,22,26,.08);
-    }
-    .section h2{
-      margin:0 0 10px;
-      font-size:16px;
-      color: var(--accent);
-      letter-spacing:.2px;
-    }
-    .section p{margin:0; color:var(--muted); line-height:1.75}
+.section{
+margin-top:14px;
+padding:16px;
+border-radius:16px;
+background: rgba(20,22,26,.03);
+border:1px solid rgba(20,22,26,.08);
+}
+.section h2{
+margin:0 0 10px;
+font-size:16px;
+color: var(--accent);
+letter-spacing:.2px;
+}
+.section p{margin:0; color:var(--muted); line-height:1.75}
 
-    .grid{
-      margin-top:12px;
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap:12px;
-    }
-    @media (max-width: 980px){ .grid{grid-template-columns:1fr} }
+.grid{
+margin-top:12px;
+display:grid;
+grid-template-columns: 1fr 1fr;
+gap:12px;
+}
+@media (max-width: 980px){ .grid{grid-template-columns:1fr} }
 
-    .kpi{
-      padding:14px;
-      border-radius:16px;
-      background: #fff;
-      border:1px solid rgba(20,22,26,.10);
-      display:flex;
-      gap:10px;
-      align-items:flex-start;
-    }
-    .kpi strong{display:block; margin-bottom:6px}
-    .kpi .txt{color:var(--muted); line-height:1.65}
-    .kpi .ico{margin-top:2px}
+.kpi{
+padding:14px;
+border-radius:16px;
+background: #fff;
+border:1px solid rgba(20,22,26,.10);
+display:flex;
+gap:10px;
+align-items:flex-start;
+}
+.kpi strong{display:block; margin-bottom:6px}
+.kpi .txt{color:var(--muted); line-height:1.65}
+.kpi .ico{margin-top:2px}
 
-    .footer{
-      margin-top:14px;
-      color: rgba(91,101,115,.75);
-      font-size:13px;
-    }
-  </style>
+.footer{
+margin-top:14px;
+color: rgba(91,101,115,.75);
+font-size:13px;
+}
+</style>
 </head>
 
 <body>
-  <div class="wrap">
+<div class="wrap">
 
-    <!-- LEFT SIDEBAR -->
-    <aside class="card sidebar">
-      <!-- Se la tua foto NON si chiama profile.jpg, cambia qui -->
-      <img class="avatar" src="assets/profile.jpg" alt="Valentina Juric" />
+<!-- LEFT SIDEBAR -->
+<aside class="card sidebar">
+<!-- Se la tua foto NON si chiama profile.jpg, cambia qui -->
+<img class="avatar" src="assets/profile.jpg" alt="Valentina Juric" />
 
-      <div class="name">Valentina Juric</div>
+<div class="name">Valentina Juric</div>
 
-      <p class="tagline">
+<p class="tagline">
+        Marketing & Communications Professional
        Marketing professional with strong, cross-functional skills
-      </p>
+</p>
 
-      <div class="info">
-        <div class="row">
-          <!-- mail icon -->
-          <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5L4 8V6l8 5 8-5v2z"/></svg>
-          <div>
-            <a href="mailto:valentina.juri98@gmail.com">valentina.juri98@gmail.com</a>
-          </div>
-        </div>
-
-      <div class="row">
-  <!-- linkedin icon -->
-  <svg class="ico" viewBox="0 0 24 24" aria-hidden="true">
-    <path d="M4.98 3.5A2.5 2.5 0 1 1 5 8.5a2.5 2.5 0 0 1-.02-5zM3 9h4v12H3V9zm7 0h3.8v1.64h.05c.53-1 1.82-2.05 3.75-2.05C21 8.59 21 11 21 14.1V21h-4v-6.1c0-1.45-.03-3.32-2.02-3.32-2.02 0-2.33 1.58-2.33 3.21V21H10V9z"/>
-  </svg>
-  <div>
-    <a href="https://www.linkedin.com/in/juric-valentina" target="_blank" rel="noreferrer">
-      linkedin.com/in/juric-valentina
-    </a>
-  </div>
+<div class="info">
+<div class="row">
+<!-- mail icon -->
+<svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5L4 8V6l8 5 8-5v2z"/></svg>
+<div>
+<a href="mailto:valentina.juri98@gmail.com">valentina.juri98@gmail.com</a>
+</div>
 </div>
 
-        <div class="row">
-          <!-- location icon -->
-          <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5z"/></svg>
-          <div>Switzerland</div>
-        </div>
-      </div>
-    </aside>
+<div class="row">
+<!-- linkedin icon -->
+<svg class="ico" viewBox="0 0 24 24" aria-hidden="true">
+<path d="M4.98 3.5A2.5 2.5 0 1 1 5 8.5a2.5 2.5 0 0 1-.02-5zM3 9h4v12H3V9zm7 0h3.8v1.64h.05c.53-1 1.82-2.05 3.75-2.05C21 8.59 21 11 21 14.1V21h-4v-6.1c0-1.45-.03-3.32-2.02-3.32-2.02 0-2.33 1.58-2.33 3.21V21H10V9z"/>
+</svg>
+<div>
+<a href="https://www.linkedin.com/in/juric-valentina" target="_blank" rel="noreferrer">
+linkedin.com/in/juric-valentina
+</a>
+</div>
+</div>
 
-    <!-- RIGHT CONTENT -->
-    <main class="card main">
-      <div class="topbar">
-        <h1>About</h1>
-        <nav class="nav">
-         
-          <a class="active" href="#about">About</a>
-<a href="#resume">Resume</a>
-<a href="#contact">Contact</a>
-        </nav>
-      </div>
+<div class="row">
+<!-- location icon -->
+<svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5z"/></svg>
+<div>Switzerland</div>
+</div>
+</div>
+</aside>
 
- <section class="section" id="about">
-        <h2>About me</h2>
-        <p>
-          I hold a Bachelor’s degree in Communication Sciences and a Master’s degree in Marketing
-          from Università della Svizzera italiana (USI).
-          My most recent experience is in the role of Marketing & Communications Associate at Sphere Energy,
-          an international leader company operating in the fields of battery technologies and AI.
-          In this position, I supported marketing and communication initiatives across four key areas:
-          content creation, campaign execution, event coordination, and project management.
-          <br/><br/>
-          I’m particularly motivated by roles in the intersection of marketing, technology, and science —
-          where innovation, progress, and meaningful impact are central.
-          I bring an organized, proactive approach, strong problem-solving skills, and a natural inclination to take ownership.
-          I’m a self-starter who enjoys exploring new tools and processes, adapting quickly, and contributing positively to team dynamics.
-          I value collaboration, precision, and accountability — and I’m driven by continuous professional and personal growth.
-        </p>
-      </section>
+<!-- RIGHT CONTENT -->
+<main class="card main">
+<div class="topbar">
+<h1>About</h1>
+<nav class="nav">
+<a class="active" href="index.html">About</a>
+<a href="resume.html">Resume</a>
+<a href="contact.html">Contact</a>
+</nav>
+</div>
 
-      <div class="grid">
-        <section class="kpi">
-          <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19h16v2H4v-2zm2-2h3V9H6v8zm5 0h3V5h-3v12zm5 0h3V12h-3v5z"/></svg>
-          <div class="txt">
-            <strong>Hard Skills</strong>
-           Google Analytics • HubSpot (basics) • Canva • CapCut • Notion
-          </div>
-        </section>
-        <section class="kpi">
-          <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7v3H3v10h18V12h-2V9a7 7 0 0 0-7-7zm5 10H7V9a5 5 0 0 1 10 0v3z"/></svg>
-          <div class="txt">
-            <strong>Working style</strong>
-            Structured • Goal-oriented • Strong multitasking & prioritization skills • High learning agility
-          </div>
-        </section>
-      </div>
-<section class="section" id="resume">
-  <h2>Resume</h2>
-
-  <p style="margin:0; color:var(--muted); line-height:1.75">
-    <strong>Marketing & Communications Associate — Sphere Energy</strong><br>
-    Content creation • Digital campaigns • Events • Project coordination
-  </p>
-
-  <ul style="margin:10px 0 0; padding-left:18px; color:var(--muted); line-height:1.75">
-    <li>Creation and management of digital content (LinkedIn, YouTube, Spotify), including graphic and layout development.</li>
-    <li>Editorial management of the <em>Espresso Talks</em> podcast (end-to-end): copywriting, planning, reviewing, and publishing.</li>
-    <li>Newsletter management (<em>Espresso Notes</em>) and video editing (<em>Espresso Shots</em>), including KPI tracking to optimize performance.</li>
-    <li>Planning and execution of digital marketing campaigns using LinkedIn Campaign Manager and Mailchimp.</li>
-    <li>Coordination of corporate participation in international trade shows and internal company events, overseeing logistics, marketing materials preparation, agenda planning, and on-site operational support.</li>
-    <li>Client project management: tracking progress, facilitating client–team communication, supporting project planning.</li>
-  </ul>
-<section>
-   <section class="section">
-  <h2>Education</h2>
-  <ul>
-    <li>
-      Bachelor of Science in Communication Sciences — Università della Svizzera italiana (USI) (Sep 2018 – Nov 2021)
-    </li>
-    <li>
-      Master of Science in Communication and Economics — Major in Marketing — Università della Svizzera italiana (USI) (Sep 2021 – Jul 2023)
-    </li>
-  </ul>
+<section class="section">
+<h2>About me</h2>
+<p>
+I hold a Bachelor’s degree in Communication Sciences and a Master’s degree in Marketing
+from Università della Svizzera italiana (USI).
+My most recent experience is in the role of Marketing & Communications Associate at Sphere Energy,
+an international leader company operating in the fields of battery technologies and AI.
+In this position, I supported marketing and communication initiatives across four key areas:
+content creation, campaign execution, event coordination, and project management.
+<br/><br/>
+I’m particularly motivated by roles in the intersection of marketing, technology, and science —
+where innovation, progress, and meaningful impact are central.
+I bring an organized, proactive approach, strong problem-solving skills, and a natural inclination to take ownership.
+I’m a self-starter who enjoys exploring new tools and processes, adapting quickly, and contributing positively to team dynamics.
+I value collaboration, precision, and accountability — and I’m driven by continuous professional and personal growth.
+</p>
 </section>
 
-
-  <div style="margin-top:12px">
-    <a
-      href="mailto:valentina.juri98@gmail.com?subject=CV%20request%20-%20Valentina%20Juric"
-      style="display:inline-block; padding:10px 12px; border-radius:12px;
-             background: var(--accentSoft); border:1px solid rgba(107,92,255,.25);
-             color: var(--accent); font-weight:700; font-size:14px;"
-    >
-      Request CV via email →
-    </a>
-  </div>
+<div class="grid">
+<section class="kpi">
+<svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19h16v2H4v-2zm2-2h3V9H6v8zm5 0h3V5h-3v12zm5 0h3V12h-3v5z"/></svg>
+<div class="txt">
+<strong>Hard Skills</strong>
+Google Analytics • HubSpot (basics) • Canva • CapCut • Notion
+</div>
 </section>
 
-<section class="section" id="contact">
-  <h2>Contact</h2>
-
-  <form id="contactForm">
-    <label for="name" style="display:block; margin:10px 0 6px; color:var(--muted); font-size:14px">Full name</label>
-    <input id="name" type="text" required placeholder="Your full name"
-           style="width:100%; padding:12px; border-radius:12px; border:1px solid rgba(20,22,26,.14); background:#fff; font-family:inherit; font-size:14px;" />
-
-    <label for="email" style="display:block; margin:10px 0 6px; color:var(--muted); font-size:14px">Email address</label>
-    <input id="email" type="email" required placeholder="your@email.com"
-           style="width:100%; padding:12px; border-radius:12px; border:1px solid rgba(20,22,26,.14); background:#fff; font-family:inherit; font-size:14px;" />
-
-    <label for="message" style="display:block; margin:10px 0 6px; color:var(--muted); font-size:14px">Your message</label>
-    <textarea id="message" required placeholder="Write your message..."
-              style="width:100%; padding:12px; border-radius:12px; border:1px solid rgba(20,22,26,.14); background:#fff; font-family:inherit; font-size:14px; min-height:140px; resize:vertical"></textarea>
-
-    <button type="submit"
-            style="margin-top:12px; display:inline-block; padding:10px 12px; border-radius:12px;
-                   background: var(--accentSoft); border:1px solid rgba(107,92,255,.25);
-                   color: var(--accent); font-weight:800; cursor:pointer; font-size:14px;">
-      Send
-    </button>
-  </form>
-
-  <div style="margin-top:12px; color:var(--muted); line-height:1.75">
-    Prefer LinkedIn? Send me a message here:
-    <a href="https://www.linkedin.com/in/juric-valentina/" target="_blank" rel="noreferrer">linkedin.com/in/juric-valentina/</a>
-  </div>
+<section class="kpi">
+<svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7v3H3v10h18V12h-2V9a7 7 0 0 0-7-7zm5 10H7V9a5 5 0 0 1 10 0v3z"/></svg>
+<div class="txt">
+<strong>Working style</strong>
+Structured • Goal-oriented • Strong multitasking & prioritization skills • High learning agility
+</div>
 </section>
-      
-      <div class="footer">Last update: <span id="d"></span></div>
-    </main>
+</div>
 
-  </div>
+<div class="footer">Last update: <span id="d"></span></div>
+</main>
+
+</div>
 
 <script>
-  document.getElementById("d").textContent = new Date().toLocaleDateString();
-
-  const form = document.getElementById('contactForm');
-  if (form) {
-    form.addEventListener('submit', function(e){
-      e.preventDefault();
-      const name = document.getElementById('name').value.trim();
-      const email = document.getElementById('email').value.trim();
-      const message = document.getElementById('message').value.trim();
-
-      const subject = encodeURIComponent(`Website contact — ${name}`);
-      const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
-      window.location.href = `mailto:valentina.juri98@gmail.com?subject=${subject}&body=${body}`;
-    });
-  }
+document.getElementById("d").textContent = new Date().toLocaleDateString();
 </script>
+</body>
+</html>
+
+~
 </body>
 </html>
 
