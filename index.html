@@ -15,6 +15,32 @@
 
   gtag('config', 'G-BDTY1XPRTT');
 </script>
+
+  <script>
+  document.addEventListener('DOMContentLoaded', function () {
+
+    // CLICK EMAIL
+    document.querySelectorAll('a[href^="mailto:"]').forEach(function(el){
+      el.addEventListener('click', function(){
+        gtag('event', 'click_email', {
+          event_category: 'engagement',
+          event_label: this.href
+        });
+      });
+    });
+
+    // CLICK LINKEDIN
+    document.querySelectorAll('a[href*="linkedin.com"]').forEach(function(el){
+      el.addEventListener('click', function(){
+        gtag('event', 'click_linkedin', {
+          event_category: 'engagement',
+          event_label: this.href
+        });
+      });
+    });
+
+  });
+</script>
   
 <style>
 :root{
