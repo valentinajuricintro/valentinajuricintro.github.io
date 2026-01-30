@@ -99,12 +99,19 @@ height: fit-content;
 @media (max-width: 980px){ .sidebar{position:relative; top:auto;} }
 
 .avatar{
-width:110px; height:110px;
-border-radius:18px;
-border:1px solid var(--border);
-object-fit:cover;
-background: linear-gradient(135deg, rgba(107,92,255,.18), rgba(20,22,26,.06));
-display:block;
+  width:160px;
+  height:160px;
+  border-radius:20px;
+  border:1px solid var(--border);
+  object-fit:cover;
+  display:block;
+  margin-bottom:6px;
+}
+  @media (max-width:980px){
+  .avatar{
+    width:130px;
+    height:130px;
+  }
 }
 
 .name{font-size:24px; margin:14px 0 10px; font-weight:700; letter-spacing:.2px}
