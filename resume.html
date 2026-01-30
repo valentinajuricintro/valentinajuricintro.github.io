@@ -239,24 +239,66 @@
   border: 1px solid rgba(20,22,26,.08);
 }
 
-.experience h3 {
-  margin: 0 0 4px;
-  font-size: 16px;
-  font-weight: 700;
-  color: var(--text); /* nero pieno */
+.experience{
+  margin-top:16px;
+  padding:18px;
+  border-radius:14px;
+  background: rgba(20,22,26,.02);
+  border:1px solid rgba(20,22,26,.08);
 }
 
-.experience .context {
-  margin: 0 0 10px;
-  font-size: 14px;
+/* titolo ruolo */
+.experience h3{
+  margin:0 0 6px;
+  font-size:16px;
+  font-weight:700;
+  color: var(--text);
+}
+
+/* riga contesto azienda */
+.experience .context{
+  margin:0 0 14px;
+  font-size:14px;
   color: var(--muted);
 }
 
-.experience p {
-  margin: 0 0 10px;
+/* paragrafo descrittivo */
+.experience p{
+  margin:0 0 14px;
   color: var(--muted);
-  line-height: 1.6;
+  line-height:1.65;
 }
+
+/* separatore leggero tra testo e bullet */
+.experience .divider{
+  height:1px;
+  background: rgba(20,22,26,.08);
+  margin: 10px 0 12px;
+}
+
+/* label sopra ai bullet */
+.experience .label{
+  margin:0 0 8px;
+  font-size:12px;
+  letter-spacing:.2px;
+  text-transform: uppercase;
+  color: rgba(91,101,115,.85);
+  font-weight:600;
+}
+
+/* bullet list più “pulita” e con spazio */
+.experience ul{
+  margin:0;
+  padding-left:18px;
+  color: var(--muted);
+  line-height:1.7;
+}
+
+.experience li{
+  margin: 8px 0;
+}
+
+ 
 
   </style>
 </head>
@@ -314,6 +356,9 @@
       across digital channels and supporting cross-functional projects.
     </p>
 
+<div class="divider"></div>
+<div class="label">Key contributions</div>
+
     <ul>
       <li>Digital content creation and editorial coordination across social and multimedia platforms</li>
       <li>Campaign execution and performance monitoring within structured digital marketing frameworks</li>
@@ -334,6 +379,9 @@
       throughout the event.
     </p>
 
+<div class="divider"></div>
+<div class="label">Key contributions</div>    
+    
     <ul>
       <li>Social media content and digital asset management for the tournament’s online presence</li>
       <li>Performance monitoring and KPI tracking to assess communication impact</li>
