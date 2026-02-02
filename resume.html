@@ -21,7 +21,7 @@
 <script>
   // 👉 cambia SOLO questo valore per ogni pagina:
   // about: "about" | resume: "resume" | contact: "contact"
-  window.PAGE_NAME = "unknown";
+  window.PAGE_NAME = "resume";
 </script>
 
 <script>
@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     el.addEventListener('click', function(){
       gtag('event', 'request_cv', {
-        page_name: window.PAGE_NAME || 'resume',
+        page_name: window.PAGE_NAME || 'unknown',
         intent: 'cv_request',
         link_url: this.href,
         link_text: getLinkText(this),
