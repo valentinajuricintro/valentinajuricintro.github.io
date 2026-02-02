@@ -12,33 +12,78 @@
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  gtag('config', 'G-BDTY1XPRTT');
+  // consigliato: più controllo + tracciamento pagine corretto
+  gtag('config', 'G-BDTY1XPRTT', {
+    send_page_view: true
+  });
 </script>
 
-  <script>
-  document.addEventListener('DOMContentLoaded', function () {
+<script>
+  // 👉 cambia SOLO questo valore per ogni pagina:
+  // about: "about" | resume: "resume" | contact: "contact"
+  window.PAGE_NAME = "about";
+</script>
 
-    // CLICK EMAIL
-    document.querySelectorAll('a[href^="mailto:"]').forEach(function(el){
-      el.addEventListener('click', function(){
-        gtag('event', 'click_email', {
-          event_category: 'engagement',
-          event_label: this.href
-        });
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+
+  function getSection(el){
+    const s = el.closest('nav, aside, main, footer');
+    return s ? s.tagName.toLowerCase() : 'unknown';
+  }
+
+  function getLinkText(el){
+    return (el.textContent || '').trim().slice(0, 80);
+  }
+
+
+  // 1) CLICK EMAIL (mailto)
+  document.querySelectorAll('a[href^="mailto:"]').forEach(function(el){
+    el.addEventListener('click', function(){
+      gtag('event', 'contact_click', {
+        page_name: window.PAGE_NAME || 'contact',
+        method: 'email',
+        link_url: this.href,
+        link_text: getLinkText(this),
+        section: getSection(this)
       });
     });
-
-    // CLICK LINKEDIN
-    document.querySelectorAll('a[href*="linkedin.com"]').forEach(function(el){
-      el.addEventListener('click', function(){
-        gtag('event', 'click_linkedin', {
-          event_category: 'engagement',
-          event_label: this.href
-        });
-      });
-    });
-
   });
+
+  // 2) CLICK LINKEDIN
+  document.querySelectorAll('a[href*="linkedin.com"]').forEach(function(el){
+    el.addEventListener('click', function(){
+      gtag('event', 'outbound_click', {
+        page_name: window.PAGE_NAME || 'unknown',
+        platform: 'linkedin',
+        link_url: this.href,
+        link_text: getLinkText(this),
+        section: getSection(this)
+      });
+    });
+  });
+
+  // 3) CTA richiesta CV (link mailto con subject "CV request")
+  // così tracci SOLO quel bottone e non qualsiasi email click generico
+  document.querySelectorAll('a[href^="mailto:"]').forEach(function(el){
+    const href = (el.getAttribute('href') || '').toLowerCase();
+    const text = (el.textContent || '').toLowerCase();
+    const isCvRequest = href.includes('cv%20request') || text.includes('request full cv');
+
+    if (!isCvRequest) return;
+
+    el.addEventListener('click', function(){
+      gtag('event', 'request_cv', {
+        page_name: window.PAGE_NAME || 'contact',
+        intent: 'cv_request',
+        link_url: this.href,
+        link_text: getLinkText(this),
+        section: getSection(this)
+      });
+    });
+  });
+
+});
 </script>
 
   <style>
