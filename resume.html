@@ -21,7 +21,7 @@
 <script>
   // 👉 cambia SOLO questo valore per ogni pagina:
   // about: "about" | resume: "resume" | contact: "contact"
-  window.PAGE_NAME = "about";
+  window.PAGE_NAME = "unknown";
 </script>
 
 <script>
@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function () {
   document.querySelectorAll('a[href^="mailto:"]').forEach(function(el){
     el.addEventListener('click', function(){
       gtag('event', 'contact_click', {
-        page_name: window.PAGE_NAME || 'resume',
+        page_name: window.PAGE_NAME || 'unknown',
         method: 'email',
         link_url: this.href,
         link_text: getLinkText(this),
@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     el.addEventListener('click', function(){
       gtag('event', 'request_cv', {
-        page_name: window.PAGE_NAME || 'unknown',
+        page_name: window.PAGE_NAME || 'resume',
         intent: 'cv_request',
         link_url: this.href,
         link_text: getLinkText(this),
