@@ -4,10 +4,6 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Valentina Juric — Contact</title>
-
-<script>
-  window.PAGE_NAME = "contact";
-</script>
   
 <!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-BDTY1XPRTT"></script>
@@ -31,6 +27,11 @@
 <script>
 document.addEventListener('DOMContentLoaded', function () {
 
+  function safeGtag(eventName, params){
+    if (typeof window.gtag !== 'function') return;
+    window.gtag('event', eventName, params);
+  }
+
   function getSection(el){
     const s = el.closest('nav, aside, main, footer');
     return s ? s.tagName.toLowerCase() : 'unknown';
@@ -40,11 +41,15 @@ document.addEventListener('DOMContentLoaded', function () {
     return (el.textContent || '').trim().slice(0, 80);
   }
 
-
-  // 1) CLICK EMAIL (mailto)
+  // EMAIL click (mailto) — solo email “normali”, esclude CV request
   document.querySelectorAll('a[href^="mailto:"]').forEach(function(el){
+    const href = (el.getAttribute('href') || '').toLowerCase();
+    const text = (el.textContent || '').toLowerCase();
+    const isCvRequest = href.includes('cv%20request') || text.includes('request full cv');
+
     el.addEventListener('click', function(){
-      gtag('event', 'contact_click', {
+      if (isCvRequest) return;
+      safeGtag('contact_click', {
         page_name: window.PAGE_NAME || 'unknown',
         method: 'email',
         link_url: this.href,
@@ -54,10 +59,10 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-  // 2) CLICK LINKEDIN
+  // LinkedIn click
   document.querySelectorAll('a[href*="linkedin.com"]').forEach(function(el){
     el.addEventListener('click', function(){
-      gtag('event', 'outbound_click', {
+      safeGtag('outbound_click', {
         page_name: window.PAGE_NAME || 'unknown',
         platform: 'linkedin',
         link_url: this.href,
@@ -67,8 +72,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-  // 3) CTA richiesta CV (link mailto con subject "CV request")
-  // così tracci SOLO quel bottone e non qualsiasi email click generico
+  // (opzionale, ma coerente) CV request se un giorno lo metti anche qui
   document.querySelectorAll('a[href^="mailto:"]').forEach(function(el){
     const href = (el.getAttribute('href') || '').toLowerCase();
     const text = (el.textContent || '').toLowerCase();
@@ -77,7 +81,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (!isCvRequest) return;
 
     el.addEventListener('click', function(){
-      gtag('event', 'request_cv', {
+      safeGtag('request_cv', {
         page_name: window.PAGE_NAME || 'unknown',
         intent: 'cv_request',
         link_url: this.href,
@@ -89,7 +93,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 });
 </script>
-
+  
   <style>
     :root{
       --bg1:#f6f7fb;
