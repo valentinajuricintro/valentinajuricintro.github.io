@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function () {
   document.querySelectorAll('a[href^="mailto:"]').forEach(function(el){
     el.addEventListener('click', function(){
       gtag('event', 'contact_click', {
-        page_name: window.PAGE_NAME || 'about',
+        page_name: window.PAGE_NAME || 'unknown',
         method: 'email',
         link_url: this.href,
         link_text: getLinkText(this),
