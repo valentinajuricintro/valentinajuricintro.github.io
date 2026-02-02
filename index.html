@@ -25,8 +25,15 @@
   window.PAGE_NAME = "about";
 </script>
 
+
 <script>
 document.addEventListener('DOMContentLoaded', function () {
+
+  // safe: se GA è bloccato/non caricato, non rompiamo niente
+  function safeGtag(eventName, params){
+    if (typeof window.gtag !== 'function') return;
+    window.gtag('event', eventName, params);
+  }
 
   function getSection(el){
     const s = el.closest('nav, aside, main, footer');
@@ -37,11 +44,21 @@ document.addEventListener('DOMContentLoaded', function () {
     return (el.textContent || '').trim().slice(0, 80);
   }
 
+  // (facoltativo) evento di controllo: utile per verificare Realtime/DebugView
+  safeGtag('ga4_ready', {
+    page_name: window.PAGE_NAME || 'unknown',
+    page_path: location.pathname
+  });
 
-  // 1) CLICK EMAIL (mailto)
+  // 1) CLICK EMAIL (mailto) — SOLO per email "normali", esclude CV request
   document.querySelectorAll('a[href^="mailto:"]').forEach(function(el){
+    const href = (el.getAttribute('href') || '').toLowerCase();
+    const text = (el.textContent || '').toLowerCase();
+    const isCvRequest = href.includes('cv%20request') || text.includes('request full cv');
+
     el.addEventListener('click', function(){
-      gtag('event', 'contact_click', {
+      if (isCvRequest) return; // evita doppio evento: per CV usiamo request_cv
+      safeGtag('contact_click', {
         page_name: window.PAGE_NAME || 'unknown',
         method: 'email',
         link_url: this.href,
@@ -54,7 +71,7 @@ document.addEventListener('DOMContentLoaded', function () {
   // 2) CLICK LINKEDIN
   document.querySelectorAll('a[href*="linkedin.com"]').forEach(function(el){
     el.addEventListener('click', function(){
-      gtag('event', 'outbound_click', {
+      safeGtag('outbound_click', {
         page_name: window.PAGE_NAME || 'unknown',
         platform: 'linkedin',
         link_url: this.href,
@@ -65,7 +82,6 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   // 3) CTA richiesta CV (link mailto con subject "CV request")
-  // così tracci SOLO quel bottone e non qualsiasi email click generico
   document.querySelectorAll('a[href^="mailto:"]').forEach(function(el){
     const href = (el.getAttribute('href') || '').toLowerCase();
     const text = (el.textContent || '').toLowerCase();
@@ -74,7 +90,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (!isCvRequest) return;
 
     el.addEventListener('click', function(){
-      gtag('event', 'request_cv', {
+      safeGtag('request_cv', {
         page_name: window.PAGE_NAME || 'unknown',
         intent: 'cv_request',
         link_url: this.href,
@@ -86,6 +102,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
 });
 </script>
+
+
 
 <style>
 :root{
