@@ -355,11 +355,13 @@ document.addEventListener('DOMContentLoaded', function () {
     form.addEventListener('submit', function(e){
       e.preventDefault();
 
-      // ✅ questa è la riga in più
-    gtag('event', 'contact_form_submit', {
-      page_name: window.PAGE_NAME || 'contact',
-      method: 'mailto_form'
-    });
+      // ✅ tracking submit (non deve mai bloccare il mailto)
+if (typeof window.gtag === 'function') {
+  window.gtag('event', 'contact_form_submit', {
+    page_name: window.PAGE_NAME || 'contact',
+    method: 'mailto_form'
+  });
+}
 
       const name = document.getElementById('name').value.trim();
       const email = document.getElementById('email').value.trim();
